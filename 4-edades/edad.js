@@ -16,3 +16,19 @@ Escriba un programa que:
 Tip: consulten los métodos de la clase Date
 https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date
 */
+const jugador = {
+  nombre: 'Luciano',
+  apellido: 'Rodriguez',
+  apodo: 'Lucho',
+}
+
+let birthday = new Date('1995-05-04');
+
+function edad(birthday){
+  let birthday2 = birthday.getFullYear()
+  let age = new Date().getFullYear();
+  const edad = age - birthday2
+  return edad;
+}
+
+console.log(`${jugador.nombre} ${jugador.apellido} "${jugador.apodo}" ${edad(birthday)}`)

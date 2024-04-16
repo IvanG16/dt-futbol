@@ -6,3 +6,9 @@ Escriba un programa que:
 - declare una variable "nombre" que será el nombre del director técnico (ustedes).
 - imprima en consola un mensaje saludando con el nombre usado.
 */
+
+function saludo(nombre){
+    console.log(`Hola ${nombre}`)
+}
+
+saludo('Ivan');
