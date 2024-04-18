@@ -22,7 +22,7 @@ const jugador = {
   apodo: 'Lucho',
 }
 
-let birthday = new Date('1995-05-04');
+let birthday = new Date('2003-07-16');
 
 function edad(birthday){
   let birthday2 = birthday.getFullYear()
