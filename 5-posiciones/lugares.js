@@ -14,29 +14,36 @@ Escriba un programa que:
 */
 
 class Jugador {
-  constructor(nombre, apellido, birthday, apodo = "") {
+  constructor(nombre, apellido, birthday, apodo, posicion) {
       this.nombre = nombre;
       this.apellido = apellido;
       this.birthday = new Date(birthday);
       this.apodo = apodo;
+      this.posicion = posicion;
   }
 
-  edad(birthday){
-    let birthday2 = birthday.getFullYear();
+  edad(){
+    let birthday2 = this.birthday.getFullYear();
     let age = new Date().getFullYear();
     const edad = age - birthday2;
     return edad;
   }
 
   toString() {
-      const edad = this.edad(this.birthday);
-      let apodoBool = this.apodo ? `"${this.apodo}"` : null;
+      const edad = this.edad();
+      let apodoBool = this.apodo === "UNKNOWN" ? null : `"${this.apodo}"`;
       return apodoBool === null ? `${this.nombre} ${this.apellido} (${edad} años)` : `${this.nombre} ${apodoBool} ${this.apellido} (${edad} años)`;
   }
 }
 
-const nahitanNandez = new Jugador("Nahitan", "Nández", "1995-12-28");
-const federicoValverde = new Jugador("Federico", "Valverde", "1998-07-22", "Pajarito");
+const jugadores = [
+  new Jugador("Nahitan","Nández", "1995-12-28", "UNKNOWN", "mediocampista"),
+  new Jugador("Federico", "Valverde", "1998-07-22", "Pajarito", "mediocampista"),
+  new Jugador("Luciano", "Rodriguez", "2003-07-16", "Lucho", "UNKNOWN"),
+];
 
-console.log(nahitanNandez.toString());
-console.log(federicoValverde.toString());
+const mediocampistas = jugadores.filter(jugador => jugador.posicion === "mediocampista");
+
+mediocampistas.forEach(jugador => {
+  console.log(jugador.toString());
+});
