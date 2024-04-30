@@ -47,3 +47,5 @@ const mediocampistas = jugadores.filter(jugador => jugador.posicion === "medioca
 mediocampistas.forEach(jugador => {
   console.log(jugador.toString());
 });
+
+module.exports = jugadores;
